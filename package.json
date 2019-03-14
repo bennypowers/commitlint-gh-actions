@@ -1,0 +1,23 @@
+{
+  "name": "commitlint-gh-actions",
+  "version": "1.0.0",
+  "description": "commitlint github action",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bennypowers/commitlint-gh-actions.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bennypowers/commitlint-gh-actions/issues"
+  },
+  "homepage": "https://github.com/bennypowers/commitlint-gh-actions#readme",
+  "dependencies": {
+    "actions-toolkit": "^1.5.0",
+    "crocks": "^0.11.1"
+  }
+}
