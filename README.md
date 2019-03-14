@@ -1,0 +1,1 @@
+# commitlint-gh-actions
