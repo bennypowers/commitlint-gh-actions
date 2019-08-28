@@ -1,5 +1,6 @@
 const { Toolkit } = require('actions-toolkit');
 const { propPathOr } = require('crocks');
+const { existsSync } = require('fs');
 
 const tools = new Toolkit({ event: 'pull_requests' })
 
@@ -44,10 +45,21 @@ const getRangeFromGit = async () => {
     return ['origin/master', head]
 }
 
-const lint = ([from, to]) =>
-    tools.runInWorkspace('commitlint', [`--from ${from}`, `--to ${to}`])
+const DEFAULT_CONFIG_PATH = './commitlint.config.js'
+const getConfigPath = () =>
+  existsSync(DEFAULT_CONFIG_PATH) ? DEFAULT_CONFIG_PATH : null;
 
-export const run = () =>
-    getRangeFromPr()
-        .catch(getRangeFromGit)
-        .then(lint)
+const lint = configPath => ([from, to]) =>
+    tools.runInWorkspace('commitlint', [
+      !configPath ? undefined :
+      `--config ${configPath}`,
+      `--from ${from}`,
+      `--to ${to}`,
+    ].filter(Boolean))
+
+const main = (...args) =>
+  getRangeFromPr()
+      .catch(getRangeFromGit)
+      .then(lint(getConfigPath(...args)))
+
+main();

@@ -1,3 +1,0 @@
-action "commitlint" {
-  uses = "./commitlint/"
-}

@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/bennypowers/commitlint-gh-actions#readme",
   "dependencies": {
+    "@commitlint/cli": "^8.1.0",
     "actions-toolkit": "^1.5.0",
     "crocks": "^0.11.1"
   }
