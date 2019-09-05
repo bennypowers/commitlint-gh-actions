@@ -3,6 +3,7 @@ author: "Benny Powers"
 description: "Lint commits for PRs with commitlint cli"
 using: "node12"
 main: "index.js"
+runs: "node index.js"
 branding:
   icon: 'thumbs-up'
   color: 'blue'
